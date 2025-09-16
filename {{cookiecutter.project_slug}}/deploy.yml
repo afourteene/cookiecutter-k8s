@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ cookiecutter.app_name }}
+spec:
+  replicas: {{ cookiecutter.replicas }}
+  selector:
+    matchLabels:
+      app: {{ cookiecutter.app_name }}
+  template:
+    metadata:
+      labels:
+        app: {{ cookiecutter.app_name }}
+    spec:
+      containers:
+      - name: {{ cookiecutter.app_name }}
+        image: {{ cookiecutter.image }}
+        ports:
+        - containerPort: {{ cookiecutter.container_port }}
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

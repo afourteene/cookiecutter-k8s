@@ -1,0 +1,7 @@
+{
+  "project_slug": "myapp",
+  "app_name": "myapp",
+  "image": ["nginx:latest","mysql:latest","redis:latest"],
+  "replicas": "2",
+  "container_port": "80"
+}

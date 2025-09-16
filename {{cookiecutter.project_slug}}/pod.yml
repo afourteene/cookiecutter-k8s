@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ cookiecutter.app_name }}-pod"
+  labels:
+    app: "{{ cookiecutter.app_name }}"
+spec:
+  containers:
+    - name: {{ cookiecutter.app_name }}
+      image: {{ cookiecutter.image }}
+      ports:
+      - containerPort: {{ cookiecutter.container_port }}
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
